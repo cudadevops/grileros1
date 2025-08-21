@@ -73,15 +73,41 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   }
 
-  /* Estilos para las banderas debajo del logo de Walmart */
-  .flag-links {
+  /* Contenedor especial para Walmart con banderas internas */
+  .walmart-circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .walmart-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .walmart-circle .walmart-logo {
+    width: 60%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Estilos para las banderas dentro del círculo de Walmart */
+  .walmart-circle .flag-links {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
   }
 
-  .flag-links a {
+  .walmart-circle .flag-links a {
     display: inline-block;
     aspect-ratio: auto;
     border-radius: 0;
@@ -89,8 +115,8 @@
     padding: 0;
   }
 
-  .flag-links img {
-    width: 30px;
+  .walmart-circle .flag-links img {
+    width: 40px;
     height: auto;
     border-radius: 0;
   }
@@ -121,18 +147,20 @@
       </a>
     </div>
 
-    <div class="grid-item">
-      <a href="https://super.walmart.com.mx/search?q=Grileros" target="_blank" class="bg-walmart">
-        <img src="https://cdn.shopify.com/s/files/1/0017/0885/1236/files/wallmart-grileros.webp?v=1749532989" alt="Comprar Grileros en Walmart">
-      </a>
-      <div class="flag-links">
-        <a href="https://www.walmart.com.mx" target="_blank">
-          <img src="https://flagcdn.com/mx.svg" alt="Walmart México">
-        </a>
-        <a href="https://www.walmart.com" target="_blank">
-          <img src="https://flagcdn.com/us.svg" alt="Walmart USA">
-        </a>
+      <div class="grid-item">
+        <div class="walmart-circle bg-walmart">
+          <a href="https://super.walmart.com.mx/search?q=Grileros" target="_blank" class="walmart-logo-link">
+            <img src="https://cdn.shopify.com/s/files/1/0017/0885/1236/files/wallmart-grileros.webp?v=1749532989" alt="Comprar Grileros en Walmart" class="walmart-logo">
+          </a>
+          <div class="flag-links">
+            <a href="https://www.walmart.com.mx" target="_blank">
+              <img src="https://flagcdn.com/mx.svg" alt="Walmart México">
+            </a>
+            <a href="https://www.walmart.com" target="_blank">
+              <img src="https://flagcdn.com/us.svg" alt="Walmart USA">
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
 </div>
