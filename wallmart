@@ -1,0 +1,108 @@
+<style>
+  /* Estilos generales */
+  .marcas-links {
+    text-align: center;
+  }
+
+  .grid-container {
+    max-width: 87%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .grid-item {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  /*
+   * ===================================================================
+   * ESTILO DE CÍRCULOS Y LOGOS
+   * ===================================================================
+  */
+
+  /* Estilo base para TODOS los círculos (los enlaces <a>) */
+  .grid-item a {
+    display: block;
+    aspect-ratio: 1 / 1; /* Mantiene la forma cuadrada para el círculo */
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    /*
+      Ajusta el 'padding' para cambiar el tamaño del logo interior.
+      Un valor MÁS GRANDE hace el logo MÁS PEQUEÑO.
+    */
+    padding: 35px; /* <-- Logo más pequeño y centrado */
+  }
+
+  /* Estilo para TODAS las imágenes (los logos) */
+  .grid-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Asegura que la imagen sea circular */
+    object-fit: cover; /* Evita que la imagen se deforme */
+    display: block;
+  }
+
+  /*
+   * ===================================================================
+   * ¡NUEVO! COLORES DE FONDO ESPECÍFICOS PARA CADA MARCA
+   * ===================================================================
+   * Se asigna un color de fondo a cada clase para coincidir con la marca.
+  */
+
+  .bg-mercadolibre {
+    background-color: #fce40f; /* Amarillo Mercado Libre */
+  }
+
+  .bg-amazon {
+    background-color: #2a4459; /* Azul oscuro Amazon */
+  }
+
+  .bg-walmart {
+    background-color: #117ccc; /* Azul Walmart */
+  }
+
+  /* Efecto al pasar el cursor */
+  .grid-item a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Estilo para pantallas pequeñas */
+  @media (max-width: 767px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="marcas-links">
+  <br />
+  <h1>{{ 'Compra en línea' }}</h1>
+  <h4>Encuéntranos en tus plataformas favoritas</h4>
+
+  <section class="grid-container">
+    <div class="grid-item">
+      <a href="https://www.mercadolibre.com.mx/sazonador-grileros-hierbas-del-campo/up/MLMU491802908#polycard_client=search-nordic&searchVariation=MLMU491802908&wid=MLM2574620440&position=5&search_layout=stack&type=product&tracking_id=805c3346-f3de-4733-9ab2-8f55c7e7297c&sid=search" target="_blank" class="bg-mercadolibre">
+        <img src="https://cdn.shopify.com/s/files/1/0017/0885/1236/files/mercado-libre-grileros.webp?v=1749532454" alt="Comprar Grileros en Mercado Libre">
+      </a>
+    </div>
+
+    <div class="grid-item">
+      <a href="https://www.amazon.com.mx/stores/Grileros/page/CCEF835E-5C12-4114-9799-9AC0368B66AD?lp_asin=B0DTD8PR9L&ref_=ast_bln" target="_blank" class="bg-amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0017/0885/1236/files/amazon-grileros.webp?v=1749532472" target="_blank" alt="Comprar Grileros en Amazon">
+      </a>
+    </div>
+
+    <div class="grid-item">
+      <a href="https://super.walmart.com.mx/search?q=Grileros" target="_blank" class="bg-walmart">
+        <img src="https://cdn.shopify.com/s/files/1/0017/0885/1236/files/wallmart-grileros.webp?v=1749532989" alt="Comprar Grileros en Walmart">
+      </a>
+    </div>
+  </section>
+</div>
