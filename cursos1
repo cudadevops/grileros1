@@ -1,0 +1,91 @@
+<!-- Odoo Form – Bloque incrustable para Páginas (Shopify) -->
+<style>
+  /* AJUSTES RÁPIDOS */
+  #odoo-form-embed {
+    /*--bg-color: ;   /* ← Cambia el HEX aquí */
+    --min-height: 490px;   /* ← Alto mínimo */
+    /*--max-width: 900px;    /* ← Ancho máximo del contenido */
+  }
+
+  /* ESTILOS (scopeados al id para evitar conflictos) */
+  #odoo-form-embed {
+    background: var(--bg-color);
+  }
+  #odoo-form-embed .ofe-wrap {
+    min-height: var(--min-height);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 32px 20px;
+    display: grid;
+    gap: 16px;
+    align-content: start;
+    box-sizing: border-box;
+  }
+  #odoo-form-embed .ofe-heading {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.2;
+  }
+  #odoo-form-embed .ofe-subtext { margin: 0 0 8px; opacity: .9; }
+  #odoo-form-embed .ofe-form { display: grid; gap: 12px; }
+  #odoo-form-embed .ofe-field { display: grid; gap: 6px; }
+  #odoo-form-embed .ofe-field input,
+  #odoo-form-embed .ofe-field textarea {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font: inherit;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  #odoo-form-embed .ofe-btn {
+    appearance: none;
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #111;
+    color: #fff;
+  }
+</style>
+
+<div id="odoo-form-embed">
+  <div class="ofe-wrap">
+    <h2 class="ofe-heading">Contáctanos</h2>
+    <p class="ofe-subtext">Déjanos tus datos y te escribimos.</p>
+
+    <!-- Cambia el action a tu endpoint en Odoo -->
+    <form class="ofe-form" action="https://TU-ODOO.com/website/form/TU_RUTA" method="post">
+      <!-- Ajusta los names según tu controlador Odoo (p.ej. crm.lead: name, email_from, phone, description) -->
+      <div class="ofe-field">
+        <label for="ofe-name">Nombre</label>
+        <input id="ofe-name" type="text" name="name" required>
+      </div>
+
+      <div class="ofe-field">
+        <label for="ofe-email">Email</label>
+        <input id="ofe-email" type="email" name="email_from" required>
+      </div>
+
+      <div class="ofe-field">
+        <label for="ofe-phone">Teléfono</label>
+        <input id="ofe-phone" type="tel" name="phone">
+      </div>
+
+      <div class="ofe-field">
+        <label for="ofe-message">Mensaje</label>
+        <textarea id="ofe-message" name="description" rows="5" required></textarea>
+      </div>
+
+      <!-- OCULTOS OPCIONALES: ajusta/borra según tu endpoint -->
+      <input type="hidden" name="model" value="crm.lead">
+      <input type="hidden" name="tag" value="Shopify">
+      <!-- Si tu controlador soporta redirect: -->
+      <!-- <input type="hidden" name="redirect" value="https://tudominio.com/pages/gracias"> -->
+
+      <button type="submit" class="ofe-btn">Enviar</button>
+    </form>
+  </div>
+</div>
