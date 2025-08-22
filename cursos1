@@ -1,19 +1,21 @@
-<!-- Shopify Form – Bloque incrustable para Páginas -->
+<!-- Formulario Shopify -->
 <style>
-  /* AJUSTES RÁPIDOS */
+  /* Variables */
   #shopify-form-embed {
-    /*--bg-color: ;   /* ← Cambia el HEX aquí */
-    --min-height: 490px;   /* ← Alto mínimo */
-    /*--max-width: 900px;    /* ← Ancho máximo del contenido */
+    --bg-color: #fff;
+    --min-height: 490px;
+    --max-width: 900px;
+    --form-width: 100%;
   }
 
-  /* ESTILOS (scopeados al id para evitar conflictos) */
+  /* Estilos */
   #shopify-form-embed {
     background: var(--bg-color);
   }
-  #shopify-form-embed .ofe-wrap {
+  #shopify-form-embed .sfe-wrap {
     min-height: var(--min-height);
     max-width: var(--max-width);
+    width: var(--form-width);
     margin: 0 auto;
     padding: 32px 20px;
     display: grid;
@@ -21,16 +23,16 @@
     align-content: start;
     box-sizing: border-box;
   }
-  #shopify-form-embed .ofe-heading {
+  #shopify-form-embed .sfe-heading {
     margin: 0;
     font-size: clamp(22px, 3vw, 32px);
     line-height: 1.2;
   }
-  #shopify-form-embed .ofe-subtext { margin: 0 0 8px; opacity: .9; }
-  #shopify-form-embed .ofe-form { display: grid; gap: 12px; }
-  #shopify-form-embed .ofe-field { display: grid; gap: 6px; }
-  #shopify-form-embed .ofe-field input,
-  #shopify-form-embed .ofe-field textarea {
+  #shopify-form-embed .sfe-subtext { margin: 0 0 8px; opacity: .9; }
+  #shopify-form-embed .sfe-form { display: grid; gap: 12px; }
+  #shopify-form-embed .sfe-field { display: grid; gap: 6px; }
+  #shopify-form-embed .sfe-field input,
+  #shopify-form-embed .sfe-field textarea {
     width: 100%;
     border: 1px solid rgba(0,0,0,.15);
     border-radius: 6px;
@@ -39,7 +41,7 @@
     background: #fff;
     box-sizing: border-box;
   }
-  #shopify-form-embed .ofe-btn {
+  #shopify-form-embed .sfe-btn {
     appearance: none;
     border: 0;
     border-radius: 8px;
@@ -52,39 +54,37 @@
 </style>
 
 <div id="shopify-form-embed">
-  <div class="ofe-wrap">
-    <h2 class="ofe-heading">Contáctanos</h2>
-    <p class="ofe-subtext">Déjanos tus datos y te escribimos.</p>
+  <div class="sfe-wrap">
+    <h2 class="sfe-heading">Contáctanos</h2>
+    <p class="sfe-subtext">Déjanos tus datos y te escribimos.</p>
 
-    <!-- Cambia el action a tu endpoint de Shopify -->
-    <form class="ofe-form" action="/contact#contact_form" method="post" accept-charset="UTF-8">
+    <form class="sfe-form" action="/contact#contact_form" method="post" accept-charset="UTF-8">
       <input type="hidden" name="form_type" value="contact">
       <input type="hidden" name="utf8" value="✓">
-      <div class="ofe-field">
-        <label for="ofe-name">Nombre</label>
-        <input id="ofe-name" type="text" name="contact[name]" required>
+      <div class="sfe-field">
+        <label for="sfe-name">Nombre</label>
+        <input id="sfe-name" type="text" name="contact[name]" required>
       </div>
 
-      <div class="ofe-field">
-        <label for="ofe-email">Email</label>
-        <input id="ofe-email" type="email" name="contact[email]" required>
+      <div class="sfe-field">
+        <label for="sfe-email">Email</label>
+        <input id="sfe-email" type="email" name="contact[email]" required>
       </div>
 
-      <div class="ofe-field">
-        <label for="ofe-phone">Teléfono</label>
-        <input id="ofe-phone" type="tel" name="contact[phone]">
+      <div class="sfe-field">
+        <label for="sfe-phone">Teléfono</label>
+        <input id="sfe-phone" type="tel" name="contact[phone]">
       </div>
 
-      <div class="ofe-field">
-        <label for="ofe-message">Mensaje</label>
-        <textarea id="ofe-message" name="contact[body]" rows="5" required></textarea>
+      <div class="sfe-field">
+        <label for="sfe-message">Mensaje</label>
+        <textarea id="sfe-message" name="contact[body]" rows="5" required></textarea>
       </div>
 
-      <!-- Etiquetas y marketing opcionales -->
       <input type="hidden" name="contact[tags]" value="Shopify">
       <input type="hidden" name="contact[accepts_marketing]" value="true">
 
-      <button type="submit" class="ofe-btn">Enviar</button>
+      <button type="submit" class="sfe-btn">Enviar</button>
     </form>
   </div>
 </div>
