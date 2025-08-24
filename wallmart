@@ -73,7 +73,7 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   }
 
-  /* Estilos para las banderas debajo del logo de Walmart */
+  /* Estilos para las banderas debajo del logo de Amazon */
   .flag-links {
     display: flex;
     justify-content: center;
@@ -119,20 +119,20 @@
       <a href="https://www.amazon.com.mx/stores/Grileros/page/CCEF835E-5C12-4114-9799-9AC0368B66AD?lp_asin=B0DTD8PR9L&ref_=ast_bln" target="_blank" class="bg-amazon">
         <img src="https://cdn.shopify.com/s/files/1/0017/0885/1236/files/amazon-grileros.webp?v=1749532472" target="_blank" alt="Comprar Grileros en Amazon">
       </a>
+      <div class="flag-links">
+        <a href="https://www.amazon.com.mx" target="_blank">
+          <img src="https://flagcdn.com/mx.svg" alt="Amazon México">
+        </a>
+        <a href="https://www.amazon.com" target="_blank">
+          <img src="https://flagcdn.com/us.svg" alt="Amazon USA">
+        </a>
+      </div>
     </div>
 
     <div class="grid-item">
       <a href="https://super.walmart.com.mx/search?q=Grileros" target="_blank" class="bg-walmart">
         <img src="https://cdn.shopify.com/s/files/1/0017/0885/1236/files/wallmart-grileros.webp?v=1749532989" alt="Comprar Grileros en Walmart">
       </a>
-      <div class="flag-links">
-        <a href="https://www.walmart.com.mx" target="_blank">
-          <img src="https://flagcdn.com/mx.svg" alt="Walmart México">
-        </a>
-        <a href="https://www.walmart.com" target="_blank">
-          <img src="https://flagcdn.com/us.svg" alt="Walmart USA">
-        </a>
-      </div>
     </div>
   </section>
 </div>
