@@ -1,10 +1,9 @@
-<!-- Formulario Shopify -->
+<!-- Formulario Shopify con video -->
 <style>
   /* Variables */
   #shopify-form-embed {
     --bg-color: #fff;
     --min-height: 490px;
-    --max-width: 900px;
     --form-width: 100%;
   }
 
@@ -14,14 +13,18 @@
   }
   #shopify-form-embed .sfe-wrap {
     min-height: var(--min-height);
-    max-width: var(--max-width);
     width: var(--form-width);
-    margin: 0 auto;
+    margin: 0;
     padding: 32px 20px;
     display: grid;
-    gap: 16px;
+    gap: 24px;
     align-content: start;
     box-sizing: border-box;
+    grid-template-columns: 1fr 1fr;
+  }
+  #shopify-form-embed .sfe-content {
+    display: grid;
+    gap: 16px;
   }
   #shopify-form-embed .sfe-heading {
     margin: 0;
@@ -51,40 +54,76 @@
     background: #111;
     color: #fff;
   }
+  #shopify-form-embed .sfe-video iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+  }
+  @media (max-width: 768px) {
+    #shopify-form-embed .sfe-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
-<div id="shopify-form-embed">
+<div id="shopify-form-embed" data-video-url="https://www.youtube.com/watch?v=6CQDNe4A9OA">
   <div class="sfe-wrap">
-    <h2 class="sfe-heading">Contáctanos</h2>
-    <p class="sfe-subtext">Déjanos tus datos y te escribimos.</p>
+    <div class="sfe-content">
+      <h2 class="sfe-heading">Contáctanos</h2>
+      <p class="sfe-subtext">Déjanos tus datos y te escribimos.</p>
 
-    <form class="sfe-form" action="/contact#contact_form" method="post" accept-charset="UTF-8">
-      <input type="hidden" name="form_type" value="contact">
-      <input type="hidden" name="utf8" value="✓">
-      <div class="sfe-field">
-        <label for="sfe-name">Nombre</label>
-        <input id="sfe-name" type="text" name="contact[name]" required>
-      </div>
+      <form class="sfe-form" action="/contact#contact_form" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="contact">
+        <input type="hidden" name="utf8" value="✓">
+        <div class="sfe-field">
+          <label for="sfe-name">Nombre</label>
+          <input id="sfe-name" type="text" name="contact[name]" required>
+        </div>
 
-      <div class="sfe-field">
-        <label for="sfe-email">Email</label>
-        <input id="sfe-email" type="email" name="contact[email]" required>
-      </div>
+        <div class="sfe-field">
+          <label for="sfe-email">Email</label>
+          <input id="sfe-email" type="email" name="contact[email]" required>
+        </div>
 
-      <div class="sfe-field">
-        <label for="sfe-phone">Teléfono</label>
-        <input id="sfe-phone" type="tel" name="contact[phone]">
-      </div>
+        <div class="sfe-field">
+          <label for="sfe-phone">Teléfono</label>
+          <input id="sfe-phone" type="tel" name="contact[phone]">
+        </div>
 
-      <div class="sfe-field">
-        <label for="sfe-message">Mensaje</label>
-        <textarea id="sfe-message" name="contact[body]" rows="5" required></textarea>
-      </div>
+        <div class="sfe-field">
+          <label for="sfe-message">Mensaje</label>
+          <textarea id="sfe-message" name="contact[body]" rows="5" required></textarea>
+        </div>
 
-      <input type="hidden" name="contact[tags]" value="Shopify">
-      <input type="hidden" name="contact[accepts_marketing]" value="true">
+        <input type="hidden" name="contact[tags]" value="Shopify">
+        <input type="hidden" name="contact[accepts_marketing]" value="true">
 
-      <button type="submit" class="sfe-btn">Enviar</button>
-    </form>
+        <button type="submit" class="sfe-btn">Enviar</button>
+      </form>
+    </div>
+    <div class="sfe-video">
+      <iframe src="" title="Video de YouTube" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
   </div>
 </div>
+
+<script>
+  (function() {
+    var container = document.getElementById('shopify-form-embed');
+    var videoUrl = container.dataset.videoUrl;
+    var iframe = container.querySelector('.sfe-video iframe');
+    if (videoUrl && iframe) {
+      try {
+        var url = new URL(videoUrl);
+        var videoId = url.searchParams.get('v') || url.pathname.split('/').pop();
+        if (videoId) {
+          iframe.src = 'https://www.youtube.com/embed/' + videoId;
+        }
+      } catch (e) {
+        // Invalid URL
+      }
+    }
+  })();
+</script>
